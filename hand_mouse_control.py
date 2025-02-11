@@ -27,23 +27,23 @@ while True:
                 x = int(lm.x * image_width)
                 y = int(lm.y * image_height)
 
-                if id == 8:  # Index Finger (Mouse Movement)
+                if id == 8:  #Index Finger
                     mouse_x = int(x * screen_width / image_width)
                     mouse_y = int(y * screen_height / image_height)
                     pyautogui.moveTo(mouse_x, mouse_y)
                     x1, y1 = x, y
 
-                if id == 4:  # Thumb (Click Detection)
+                if id == 4:  #Thumb
                     x2, y2 = x, y
 
-                if id == 12:  # Middle Finger (Scroll Detection)
+                if id == 12:  #Middle Finger
                     scroll_y = y
 
-            # Click Detection
+            # Click Detect
             if abs(y2 - y1) < 30:
                 pyautogui.click()
 
-            # Scrolling Detection
+            # Scroll Detect
             scroll_threshold = 20
             if abs(scroll_y - y1) > scroll_threshold:
                 if scroll_y < y1:  # Scroll Up
